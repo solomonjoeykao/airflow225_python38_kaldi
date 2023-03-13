@@ -26,7 +26,7 @@ function install_pip_version() {
     echo
     echo "${COLOR_BLUE}Installing pip version ${AIRFLOW_PIP_VERSION}${COLOR_RESET}"
     echo
-    pip install --disable-pip-version-check --no-cache-dir --upgrade "pip==${AIRFLOW_PIP_VERSION}" &&
+    pip3 install --disable-pip-version-check --no-cache-dir --upgrade "pip==${AIRFLOW_PIP_VERSION}" &&
         mkdir -p ${HOME}/.local/bin
 }
 
