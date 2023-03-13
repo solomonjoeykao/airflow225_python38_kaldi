@@ -59,7 +59,7 @@ ARG PIP_PROGRESS_BAR="on"
 ##############################################################################################
 # This is the build image where we build all dependencies
 ##############################################################################################
-FROM ${PYTHON_BASE_IMAGE} as airflow-build-image
+FROM solomonjoeykao/kaldi-srilm-py38:4d8de477fdbe71d2a1f933b0a234fae2512661e0 as airflow-build-image
 
 # Nolog bash flag is currently ignored - but you can replace it with
 # xtrace - to show commands executed)
