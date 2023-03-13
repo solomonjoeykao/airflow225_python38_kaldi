@@ -36,7 +36,7 @@ function compile_www_assets() {
         # In case we are building from sources in production image, we should build the assets
         www_dir="${AIRFLOW_SOURCES_TO=${AIRFLOW_SOURCES}}/airflow/www"
     else
-        www_dir="$(python -m site --user-site)/airflow/www"
+        www_dir="$(python3 -m site --user-site)/airflow/www"
     fi
     pushd ${www_dir} || exit 1
     set +e
