@@ -78,10 +78,10 @@ function install_airflow_and_providers_from_docker_context_files(){
         echo "${COLOR_BLUE}Force re-installing airflow and providers from local files with constraints and upgrade if needed${COLOR_RESET}"
         echo
         if [[ ${AIRFLOW_CONSTRAINTS_LOCATION} == "/"* ]]; then
-            grep -ve '^apache-airflow' <"https://raw.githubusercontent.com/apache/airflow/constraints-2.3.4rc1/constraints-3.8.txt" > /tmp/constraints.txt
+            grep -ve '^apache-airflow' <"https://raw.githubusercontent.com/apache/airflow/constraints-2.2.5/constraints-3.8.txt" > /tmp/constraints.txt
         else
             # Remove provider packages from constraint files because they are locally prepared
-            curl -L "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.4rc1/constraints-3.8.txt" | grep -ve '^apache-airflow' > /tmp/constraints.txt
+            curl -L "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.5/constraints-3.8.txt" | grep -ve '^apache-airflow' > /tmp/constraints.txt
         fi
         # force reinstall airflow + provider package local files with constraints + upgrade if needed
         pip3 install "${pip_flags[@]}" --force-reinstall \
