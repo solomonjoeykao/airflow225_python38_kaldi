@@ -45,7 +45,7 @@ function install_airflow_dependencies_from_branch_tip() {
     # are conflicts, this might fail, but it should be fixed in the following installation steps
     pip install \
       "https://github.com/${AIRFLOW_REPO}/archive/${AIRFLOW_BRANCH}.tar.gz#egg=apache-airflow[${AIRFLOW_EXTRAS}]" \
-      --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.5/constraints-3.8.txt" || true
+      --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.4rc1/constraints-3.8.txt" || true
     # make sure correct PIP version is used
     pip install --disable-pip-version-check "pip==${AIRFLOW_PIP_VERSION}"
     pip freeze | grep apache-airflow-providers | xargs pip uninstall --yes 2>/dev/null || true
