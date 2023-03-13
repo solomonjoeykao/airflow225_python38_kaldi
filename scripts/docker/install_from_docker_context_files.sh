@@ -115,7 +115,7 @@ function install_all_other_packages_from_docker_context_files() {
     reinstalling_other_packages=$(ls /docker-context-files/*.{whl,tar.gz} 2>/dev/null | \
         grep -v apache_airflow | grep -v apache-airflow || true)
     if [[ -n "${reinstalling_other_packages}" ]]; then \
-        pip install --force-reinstall --no-deps --no-index ${reinstalling_other_packages}
+        pip3 install --force-reinstall --no-deps --no-index ${reinstalling_other_packages}
         # make sure correct PIP version is used
         pip3 install "pip==${AIRFLOW_PIP_VERSION}"
     fi
