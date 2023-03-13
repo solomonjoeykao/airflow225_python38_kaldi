@@ -43,16 +43,16 @@ function install_airflow_dependencies_from_branch_tip() {
     fi
     # Install latest set of dependencies using constraints. In case constraints were upgraded and there
     # are conflicts, this might fail, but it should be fixed in the following installation steps
-    pip install \
+    pip3 install \
       "https://github.com/${AIRFLOW_REPO}/archive/${AIRFLOW_BRANCH}.tar.gz#egg=apache-airflow[${AIRFLOW_EXTRAS}]" \
       --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.5/constraints-3.8.txt" || true
     # make sure correct PIP version is used
-    pip install --disable-pip-version-check "pip==${AIRFLOW_PIP_VERSION}"
-    pip freeze | grep apache-airflow-providers | xargs pip uninstall --yes 2>/dev/null || true
+    pip3 install --disable-pip-version-check "pip==${AIRFLOW_PIP_VERSION}"
+    pip3 freeze | grep apache-airflow-providers | xargs pip uninstall --yes 2>/dev/null || true
     echo
     echo "${COLOR_BLUE}Uninstalling just airflow. Dependencies remain. Now target airflow can be reinstalled using mostly cached dependencies${COLOR_RESET}"
     echo
-    pip uninstall --yes apache-airflow || true
+    pip3 uninstall --yes apache-airflow || true
 }
 
 common::get_colors
