@@ -67,6 +67,6 @@ function common::get_constraints_location() {
 
 function common::show_pip_version_and_location() {
    echo "PATH=${PATH}"
-   echo "pip on path: $(which pip)"
-   echo "Using pip: $(pip --version)"
+   echo "pip on path: $(which pip3)"
+   echo "Using pip: $(pip3 --version)"
 }
